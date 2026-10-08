@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Fresh Vegetables Supplier from Coimbatore — Full Range | Organic Exports</title>
+  <meta name="description" content="Compare Organic Exports’ vegetable range: small onion, tomato, green chilli, jalapeño, drumstick, ridge gourd, bottle gourd, bitter gourd and cauliflower. Grades, packing, MOQ and seasons."></meta>
+  <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&amp;display=swap"></link>
+  <style>html{scroll-behavior:smooth}body{margin:0;background:#FAF7EF;-webkit-font-smoothing:antialiased}a{color:#0A2E23}a:hover{color:#8A6116}*{box-sizing:border-box}</style>
+  <script src="motion.js"></script>
+</helmet>
+<dc-import name="SiteHeader" active="vegetables" hint-size="100%,108px"></dc-import>
+<main style="font-family:'Plus Jakarta Sans',sans-serif;color:#0A2E23;background:#FAF7EF">
+  <dc-import name="PageHero" crumb="VEGETABLES" eyebrow="THE FULL RANGE" title="Fresh vegetables from" accent="the Coimbatore belt." intro="Nine lines, each sourced from the growing cluster best suited to it. Order a single vegetable by the truck, or combine several into one mixed consignment." img="assets/tomato-3.jpg" hint-size="100%,420px"></dc-import>
+
+  <section style="position:relative;z-index:3;max-width:1320px;margin:-34px auto 0;padding:0 clamp(18px,4vw,32px)">
+    <div data-noreveal="" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:28px;padding:8px 8px 8px 22px;box-shadow:0 30px 60px -30px rgba(4,26,18,0.5),0 2px 8px rgba(4,26,18,0.05);border:1px solid rgba(10,46,35,0.06)">
+      <span style="font:700 10.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.22em;color:#8A6116">FILTER BY TYPE</span>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+          <button onClick="{{ f.select }}" style="{{ f.style }}">{{ f.label }}<span style="{{ f.countStyle }}">{{ f.count }}</span></button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:40px clamp(18px,4vw,32px) clamp(48px,8vw,80px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:20px">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="9">
+        <div style="height:430px;min-width:0">
+          <dc-import name="VegCard" href="{{ c.href }}" img="{{ c.img }}" title="{{ c.name }}" local="{{ c.local }}" tag="{{ c.tag }}" blurb="{{ c.blurb }}" season="{{ c.season }}" style="display:block;height:100%" hint-size="100%,430px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="position:relative;overflow:hidden;background:linear-gradient(160deg,#0F4A37 0%,#062319 70%)">
+    <span style="position:absolute;inset:0;background:radial-gradient(800px 420px at 85% 0%,rgba(233,196,106,0.2),transparent 65%),radial-gradient(600px 320px at 0% 100%,rgba(47,163,107,0.22),transparent 70%)"></span>
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(18px,4vw,32px);display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+      <div data-noreveal="" style="flex:1 1 460px;min-width:0;position:relative;min-height:480px">
+        <div data-zoom="" style="position:absolute;left:0;top:0;width:74%;height:88%;border-radius:28px;overflow:hidden;box-shadow:0 50px 90px -40px rgba(0,0,0,0.8);border:1px solid rgba(233,196,106,0.3)">
+          <img src="assets/small-onion-1.jpg" alt="Coimbatore small onions" style="width:100%;height:100%;object-fit:cover;display:block"></img>
+        </div>
+        <div data-zoom="" data-float="8" style="position:absolute;right:0;bottom:0;width:44%;aspect-ratio:1;border-radius:24px;overflow:hidden;border:6px solid rgba(255,253,248,0.95);box-shadow:0 30px 60px -20px rgba(0,0,0,0.7)">
+          <img src="assets/small-onion-4.jpg" alt="Graded shallots in hand" style="width:100%;height:100%;object-fit:cover;display:block"></img>
+        </div>
+        <div data-float="6" style="position:absolute;left:24px;bottom:28px;background:rgba(6,35,25,0.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(233,196,106,0.35);border-radius:18px;padding:14px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,0.6)">
+          <span style="width:44px;height:44px;border-radius:50%;background:linear-gradient(145deg,#F1CF7A,#B8872F);color:#062319;display:flex;align-items:center;justify-content:center;font:700 20px/1 'Cormorant Garamond',serif">★</span>
+          <span style="display:flex;flex-direction:column;gap:4px"><span style="font:700 9.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.2em;color:#E9C46A">FLAGSHIP LINE</span><span style="font:600 19px/1 'Cormorant Garamond',serif;color:#FFFDF8">Coimbatore’s signature crop</span></span>
+        </div>
+      </div>
+      <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <span style="display:flex;align-items:center;gap:14px;font:700 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.26em;color:#E9C46A"><span style="width:40px;height:1px;background:#E9C46A"></span>SPOTLIGHT</span>
+        <h2 style="margin:0;font:600 clamp(40px,4.4vw,64px)/0.98 'Cormorant Garamond',serif;letter-spacing:-0.015em;color:#FFFDF8">Small Onion <span style="font-style:italic;color:#F1CF7A">— cured for the long road.</span></h2>
+        <p style="margin:0;font-size:16.5px;line-height:1.75;color:#C9D8CF;max-width:520px">Field-cured 7–10 days before grading, so necks dry, skins set and bulbs hold up through multi-day road transit to any state.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:540px">
+          <div style="background:rgba(255,253,248,0.07);border:1px solid rgba(255,253,248,0.14);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px"><span style="font:600 28px/1 'Cormorant Garamond',serif;color:#F1CF7A">3</span><span style="font-size:12.5px;color:#C9D8CF">size grades</span></div>
+          <div style="background:rgba(255,253,248,0.07);border:1px solid rgba(255,253,248,0.14);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px"><span style="font:600 28px/1 'Cormorant Garamond',serif;color:#F1CF7A">45d</span><span style="font-size:12.5px;color:#C9D8CF">shelf life</span></div>
+          <div style="background:rgba(255,253,248,0.07);border:1px solid rgba(255,253,248,0.14);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px"><span style="font:600 28px/1 'Cormorant Garamond',serif;color:#F1CF7A">5 MT</span><span style="font-size:12.5px;color:#C9D8CF">minimum order</span></div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px">
+          <a href="SmallOnion.dc.html" style="background:linear-gradient(135deg,#F1CF7A,#C99A3E);color:#062319;text-decoration:none;font-size:15px;font-weight:700;padding:16px 26px;border-radius:999px;box-shadow:0 16px 36px -12px rgba(233,196,106,0.8)" style-hover="transform:translateY(-2px)">View Small Onion specs</a>
+          <a href="Contact.dc.html?product=small-onion#quote" style="border:1px solid rgba(255,253,248,0.3);color:#FFFDF8;text-decoration:none;font-size:15px;font-weight:600;padding:15px 24px;border-radius:999px;background:rgba(255,253,248,0.05)" style-hover="border-color:#F1CF7A;color:#F1CF7A">Get a price</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;overflow:hidden;background:linear-gradient(180deg,#FAF7EF 0%,#F3EEE2 100%)">
+    <span style="position:absolute;right:-160px;top:-60px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(241,207,122,0.2),transparent 70%)"></span>
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(18px,4vw,32px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px">
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:680px">
+          <span style="display:flex;align-items:center;gap:14px;font:700 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.26em;color:#8A6116"><span style="width:40px;height:1px;background:#C99A3E"></span>AT A GLANCE</span>
+          <h2 style="margin:0;font:600 clamp(36px,4vw,56px)/1 'Cormorant Garamond',serif;letter-spacing:-0.015em">Compare <span style="font-style:italic;color:#1F7A55">specifications</span></h2>
+        </div>
+        <span style="font-size:14px;color:#5E6E66;max-width:360px;line-height:1.6">Indicative trade specs. Full sheets, grades and harvest calendars are on each vegetable’s page.</span>
+      </div>
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="overflow-x:auto;background:#FFFFFF;border-radius:28px;padding:10px 24px;box-shadow:0 50px 90px -50px rgba(6,35,25,0.55);border:1px solid rgba(10,46,35,0.06)">
+        <div style="min-width:920px;display:flex;flex-direction:column">
+          <div style="display:grid;grid-template-columns:2.2fr 1.2fr 1.4fr 0.9fr 1fr 1.4fr 0.7fr;gap:16px;padding:16px 8px;font:700 10px/1.3 'Plus Jakarta Sans',sans-serif;letter-spacing:0.18em;color:#8A6116;border-bottom:1px solid rgba(10,46,35,0.1)">
+            <span>VEGETABLE</span><span>SIZE / GRADE</span><span>PACKING</span><span>MIN. ORDER</span><span>SHELF LIFE</span><span>TRANSPORT</span><span></span>
+          </div>
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="9">
+            <a href="{{ r.href }}" style="display:grid;grid-template-columns:2.2fr 1.2fr 1.4fr 0.9fr 1fr 1.4fr 0.7fr;gap:16px;align-items:center;padding:12px 8px;border-bottom:1px solid rgba(10,46,35,0.06);text-decoration:none;color:#0A2E23;border-radius:16px;transition:background .2s" style-hover="background:#F7F4EC">
+              <span style="display:flex;align-items:center;gap:14px;min-width:0">
+                <img src="{{ r.img }}" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 8px 18px -8px rgba(6,35,25,0.5);border:2px solid #FFFFFF"></img>
+                <span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font:600 22px/1 'Cormorant Garamond',serif">{{ r.name }}</span><span style="font:italic 500 13px/1 'Cormorant Garamond',serif;color:#8A6116">{{ r.local }}</span></span>
+              </span>
+              <span style="font-size:14px;font-weight:600">{{ r.size }}</span>
+              <span style="font-size:14px;color:#4E5F57">{{ r.pack }}</span>
+              <span style="justify-self:start;font:700 12.5px/1 'Plus Jakarta Sans',sans-serif;background:#F3EEE2;color:#0A2E23;padding:8px 11px;border-radius:999px">{{ r.moq }}</span>
+              <span style="font-size:14px;color:#4E5F57">{{ r.shelf }}</span>
+              <span style="{{ r.modeStyle }}">{{ r.mode }}</span>
+              <span style="justify-self:end;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#F1CF7A,#C99A3E);color:#062319;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 8px 18px -8px rgba(201,154,62,0.8)">→</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="9">
+            <a href="{{ r.href }}" style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;border-radius:22px;padding:16px 18px;text-decoration:none;color:#0A2E23;box-shadow:0 24px 48px -34px rgba(6,35,25,0.5);border:1px solid rgba(10,46,35,0.06)">
+              <span style="display:flex;align-items:center;gap:14px">
+                <img src="{{ r.img }}" alt="" style="width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;border:2px solid #FFFFFF;box-shadow:0 8px 18px -8px rgba(6,35,25,0.5)"></img>
+                <span style="flex:1;display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font:600 22px/1 'Cormorant Garamond',serif">{{ r.name }}</span><span style="font:italic 500 13px/1 'Cormorant Garamond',serif;color:#8A6116">{{ r.local }}</span></span>
+                <span style="width:34px;height:34px;border-radius:50%;flex:none;background:linear-gradient(135deg,#F1CF7A,#C99A3E);color:#062319;display:flex;align-items:center;justify-content:center;font-weight:700">→</span>
+              </span>
+              <span style="display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;padding-top:12px;border-top:1px solid rgba(10,46,35,0.08)">
+                <span style="display:flex;flex-direction:column;gap:4px"><span style="font:700 9px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.16em;color:#8A6116">SIZE</span><span style="font-size:13.5px;font-weight:600">{{ r.size }}</span></span>
+                <span style="display:flex;flex-direction:column;gap:4px"><span style="font:700 9px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.16em;color:#8A6116">MIN. ORDER</span><span style="font-size:13.5px;font-weight:600">{{ r.moq }}</span></span>
+                <span style="display:flex;flex-direction:column;gap:4px"><span style="font:700 9px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.16em;color:#8A6116">PACKING</span><span style="font-size:13.5px">{{ r.pack }}</span></span>
+                <span style="display:flex;flex-direction:column;gap:4px"><span style="font:700 9px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.16em;color:#8A6116">SHELF LIFE</span><span style="font-size:13.5px">{{ r.shelf }}</span></span>
+              </span>
+              <span style="{{ r.modeStyle }}">{{ r.mode }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="position:relative;overflow:hidden;background:linear-gradient(160deg,#0F4A37 0%,#062319 70%)">
+    <span style="position:absolute;inset:0;background:radial-gradient(800px 400px at 10% 0%,rgba(233,196,106,0.16),transparent 65%)"></span>
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(18px,4vw,32px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:28px">
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:640px">
+          <span style="display:flex;align-items:center;gap:14px;font:700 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.26em;color:#E9C46A"><span style="width:40px;height:1px;background:#E9C46A"></span>PLAN YOUR BUYING</span>
+          <h2 style="margin:0;font:600 clamp(36px,4vw,56px)/1 'Cormorant Garamond',serif;letter-spacing:-0.015em;color:#FFFDF8">Harvest calendar, <span style="font-style:italic;color:#F1CF7A">all lines</span></h2>
+        </div>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;font:700 10.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.14em;color:#B9CFC3">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#F1CF7A,#C99A3E)"></span>PEAK</span>
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:4px;background:#2FA36B"></span>AVAILABLE</span>
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:4px;border:1px dashed rgba(230,242,234,0.4)"></span>LIMITED</span>
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:4px;box-shadow:inset 0 0 0 2px #FFFDF8"></span>THIS MONTH</span>
+        </div>
+      </div>
+      <div style="overflow-x:auto;background:rgba(255,253,248,0.04);border:1px solid rgba(255,253,248,0.1);border-radius:26px;padding:22px 24px">
+        <div style="min-width:900px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:grid;grid-template-columns:210px repeat(12,minmax(0,1fr));gap:6px;padding-bottom:6px">
+            <span></span>
+            <sc-for list="{{ months }}" as="m" hint-placeholder-count="12">
+              <span style="{{ m.style }}">{{ m.label }}</span>
+            </sc-for>
+          </div>
+          <sc-for list="{{ calendar }}" as="row" hint-placeholder-count="9">
+            <div style="display:grid;grid-template-columns:210px repeat(12,minmax(0,1fr));gap:6px;align-items:center">
+              <a href="{{ row.href }}" style="display:flex;align-items:center;gap:12px;color:#FFFDF8;text-decoration:none" style-hover="color:#F1CF7A">
+                <img src="{{ row.img }}" alt="" style="width:34px;height:34px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(233,196,106,0.5)"></img>
+                <span style="font:600 20px/1 'Cormorant Garamond',serif">{{ row.name }}</span>
+              </a>
+              <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="12">
+                <div style="{{ c.wrap }}">
+                  <sc-if value="{{ c.peak }}"><span style="flex:1;border-radius:9px;background:linear-gradient(180deg,#F6D88A,#C99A3E);box-shadow:0 8px 18px -10px rgba(233,196,106,0.8)"></span></sc-if>
+                  <sc-if value="{{ c.avail }}"><span style="flex:1;border-radius:9px;background:linear-gradient(180deg,#3FBF7F,#1F7A55)"></span></sc-if>
+                  <sc-if value="{{ c.low }}"><span style="flex:1;border-radius:9px;border:1px dashed rgba(230,242,234,0.3)"></span></sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(18px,4vw,32px) clamp(53px,8vw,88px)">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;margin:0 auto 44px;max-width:720px">
+      <span style="display:flex;align-items:center;gap:14px;font:700 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.26em;color:#8A6116"><span style="width:40px;height:1px;background:#C99A3E"></span>BUYING GUIDE<span style="width:40px;height:1px;background:#C99A3E"></span></span>
+      <h2 style="margin:0;font:600 clamp(36px,4vw,56px)/1 'Cormorant Garamond',serif;letter-spacing:-0.015em">Three ways <span style="font-style:italic;color:#1F7A55">to order</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr));gap:20px;align-items:stretch">
+      <div data-zoom="" style="position:relative;overflow:hidden;border-radius:28px;background:#FFFFFF;box-shadow:0 44px 80px -44px rgba(6,35,25,0.55);border:1px solid rgba(10,46,35,0.06);display:flex;flex-direction:column">
+        <div style="position:relative;height:160px;overflow:hidden"><img src="assets/tomato-4.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></img><span style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,#FFFFFF 100%)"></span></div>
+        <div style="padding:6px 28px 30px;display:flex;flex-direction:column;gap:12px;flex:1">
+          <span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.22em;color:#8A6116">FULL TRUCK</span>
+          <span style="font:600 32px/1.02 'Cormorant Garamond',serif">Single vegetable</span>
+          <span style="font-size:14.5px;line-height:1.65;color:#4E5F57">Best landed price — for wholesale traders and processors buying one line in volume.</span>
+          <span style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(10,46,35,0.08);display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.18em;color:#5E6E66">VOLUME</span><span style="font:600 30px/1 'Cormorant Garamond',serif;color:#0A2E23">8–20 MT</span></span>
+        </div>
+      </div>
+      <div data-zoom="" style="position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(160deg,#0F4A37,#062319);box-shadow:0 60px 100px -44px rgba(4,26,18,0.85);border:1px solid rgba(233,196,106,0.4);display:flex;flex-direction:column">
+        <div style="position:relative;height:160px;overflow:hidden"><img src="assets/ridge-gourd-3.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></img><span style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,#0D4433 100%)"></span><span style="position:absolute;right:16px;top:16px;background:linear-gradient(135deg,#F1CF7A,#C99A3E);color:#062319;font:800 9.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.18em;padding:8px 12px;border-radius:999px">MOST FLEXIBLE</span></div>
+        <div style="padding:6px 28px 30px;display:flex;flex-direction:column;gap:12px;flex:1">
+          <span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.22em;color:#E9C46A">MIXED LOAD</span>
+          <span style="font:600 32px/1.02 'Cormorant Garamond',serif;color:#FFFDF8">Several vegetables, one truck</span>
+          <span style="font-size:14.5px;line-height:1.65;color:#C9D8CF">Combine onion, chilli, gourds and drumstick, packed in temperature-compatible zones.</span>
+          <span style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(233,196,106,0.2);display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.18em;color:#A9C2B5">FROM</span><span style="font:600 30px/1 'Cormorant Garamond',serif;color:#F1CF7A">1 MT / line</span></span>
+        </div>
+      </div>
+      <div data-zoom="" style="position:relative;overflow:hidden;border-radius:28px;background:#FFFFFF;box-shadow:0 44px 80px -44px rgba(6,35,25,0.55);border:1px solid rgba(10,46,35,0.06);display:flex;flex-direction:column">
+        <div style="position:relative;height:160px;overflow:hidden"><img src="assets/tomato-2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></img><span style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,#FFFFFF 100%)"></span></div>
+        <div style="padding:6px 28px 30px;display:flex;flex-direction:column;gap:12px;flex:1">
+          <span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.22em;color:#8A6116">CONTRACT SUPPLY</span>
+          <span style="font:600 32px/1.02 'Cormorant Garamond',serif">Fixed weekly volumes</span>
+          <span style="font-size:14.5px;line-height:1.65;color:#4E5F57">Planned plantings, priority allocation in lean months and fortnightly price bands.</span>
+          <span style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(10,46,35,0.08);display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.18em;color:#5E6E66">PRICING</span><span style="font:600 30px/1 'Cormorant Garamond',serif;color:#0A2E23">Fortnightly</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,760px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const V = [
+  { p:'SmallOnion', img:'small-onion-5', name:'Small Onion', local:'Chinna Vengayam', tag:'FLAGSHIP', cat:'bulb', blurb:'Cured, pungent pink shallots from Coimbatore and Tiruppur growers.', season:'PEAK MAR–MAY · AUG–OCT', size:'15–40 mm', pack:'25 / 50 kg mesh', moq:'5 MT', shelf:'30–45 days', mode:'Ventilated', t:'amb', cal:[1,1,2,2,2,1,1,2,2,2,1,1] },
+  { p:'Tomato', img:'tomato-3', name:'Tomato', local:'Thakkali', tag:'HIGH VOLUME', cat:'bulb', blurb:'Firm hybrid and country tomatoes, picked to suit your transit time.', season:'PEAK NOV–MAR', size:'50–70+ mm', pack:'15 / 25 kg crate', moq:'8–10 MT', shelf:'7–12 days', mode:'Reefer / ventilated', t:'mix', cal:[2,2,2,1,1,1,1,1,1,1,2,2] },
+  { p:'GreenChilli', img:'green-chilli-2', name:'Green Chilli', local:'Pachai Milagai', tag:'HIGH DEMAND', cat:'chilli', blurb:'Glossy, medium-hot dark green chillies, stems intact.', season:'YEAR-ROUND', size:'6–12 cm', pack:'5–10 kg carton', moq:'2 MT', shelf:'7–10 days', mode:'Reefer 8–10 °C', t:'cold', cal:[1,1,2,2,2,1,1,1,1,2,2,1] },
+  { p:'Jalapeno', img:'jalapeno-2', name:'Jalapeño', local:'Thick-walled', tag:'SPECIALTY', cat:'chilli', blurb:'Plump, thick-fleshed chillies for food-service and processors.', season:'CONTRACT · YEAR-ROUND', size:'6–9 cm', pack:'5 / 10 kg carton', moq:'1 MT', shelf:'10–14 days', mode:'Reefer 7–10 °C', t:'cold', cal:[1,1,2,2,1,1,1,1,2,2,1,1] },
+  { p:'Drumstick', img:'drumstick-2', name:'Drumstick', local:'Murungakkai', tag:'TN SPECIALTY', cat:'pod', blurb:'Long, tender PKM-1 pods, bundled straight for transit.', season:'PEAK FEB–JUN', size:'45–60 cm', pack:'5 kg bundles', moq:'2 MT', shelf:'7–10 days', mode:'Reefer 8–10 °C', t:'cold', cal:[1,2,2,2,2,2,1,0,0,1,1,1] },
+  { p:'RidgeGourd', img:'ridge-gourd-3', name:'Ridge Gourd', local:'Peerkangai', tag:'GOURD', cat:'gourd', blurb:'Tender, straight trellis-grown gourds, picked young.', season:'YEAR-ROUND', size:'30–45 cm', pack:'10 / 20 kg carton', moq:'2 MT', shelf:'5–7 days', mode:'Reefer 10–12 °C', t:'cold', cal:[1,1,2,2,2,1,1,1,2,2,1,1] },
+  { p:'BottleGourd', img:'bottle-gourd-1', name:'Bottle Gourd', local:'Suraikkai', tag:'GOURD', cat:'gourd', blurb:'Glossy, cylindrical gourds with consistent weight.', season:'PEAK FEB–MAY', size:'0.8–1.8 kg', pack:'20 kg crate', moq:'3 MT', shelf:'10–14 days', mode:'Ventilated / reefer', t:'mix', cal:[1,2,2,2,2,1,1,1,1,1,1,1] },
+  { p:'BitterGourd', img:'bitter-gourd-3', name:'Bitter Gourd', local:'Pavakkai', tag:'GOURD', cat:'gourd', blurb:'Bright green, firm, spiny bitter gourds picked before yellowing.', season:'YEAR-ROUND', size:'15–30 cm', pack:'10 / 20 kg carton', moq:'2 MT', shelf:'5–7 days', mode:'Reefer 10–12 °C', t:'cold', cal:[1,1,2,2,2,1,1,1,2,2,1,1] },
+  { p:'Cauliflower', img:'cauliflower-1', name:'Cauliflower', local:'Hill-grown', tag:'COOL-SEASON', cat:'pod', blurb:'Compact, white curds from the cool Nilgiris foothills.', season:'PEAK NOV–FEB', size:'600 g – 1.2 kg', pack:'Crate by count', moq:'3 MT', shelf:'10–14 days', mode:'Reefer 0–4 °C', t:'cold', cal:[2,2,1,0,0,0,1,1,1,1,2,2] }
+];
+const F = [['all','All'],['bulb','Onion & Tomato'],['chilli','Chillies'],['gourd','Gourds'],['pod','Drumstick & Cauliflower']];
+const M = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+const TONE = { cold: ['#EEF1F8','#3B5A8C'], amb: ['#FBF1DA','#8A6116'], mix: ['#E8F4EC','#1F7A55'] };
+class Component extends DCLogic {
+  state = { f: 'all', w: typeof window !== 'undefined' ? window.innerWidth : 1400 };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR); this.onR(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); }
+  renderVals() {
+    const f = this.state.f, now = new Date().getMonth();
+    const font = "600 13.5px/1 'Plus Jakarta Sans',sans-serif";
+    return {
+      wide: this.state.w >= 760, narrow: this.state.w < 760,
+      filters: F.map(([k, label]) => {
+        const on = f === k, n = k === 'all' ? V.length : V.filter(v => v.cat === k).length;
+        return { label, count: n, select: () => this.setState({ f: k }),
+          style: { display: 'flex', alignItems: 'center', gap: 8, font, padding: '10px 10px 10px 16px', borderRadius: 999, cursor: 'pointer', border: 0, transition: 'all .25s', background: on ? 'linear-gradient(135deg,#0F4A37,#062319)' : 'transparent', color: on ? '#FFFDF8' : '#0A2E23', boxShadow: on ? '0 10px 22px -10px rgba(4,26,18,0.6)' : 'none' },
+          countStyle: { minWidth: 22, height: 22, borderRadius: 999, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', font: "800 11px/1 'Plus Jakarta Sans',sans-serif", background: on ? 'linear-gradient(135deg,#F1CF7A,#C99A3E)' : '#F3EEE2', color: on ? '#062319' : '#8A6116', padding: '0 6px' } };
+      }),
+      cards: V.filter(v => f === 'all' || v.cat === f).map(v => ({ ...v, href: v.p + '.dc.html', img: 'assets/' + v.img + '.jpg' })),
+      rows: V.map(v => ({ ...v, href: v.p + '.dc.html', img: 'assets/' + v.img + '.jpg',
+        modeStyle: { justifySelf: 'start', font: "700 12px/1 'Plus Jakarta Sans',sans-serif", background: TONE[v.t][0], color: TONE[v.t][1], padding: '8px 11px', borderRadius: 999, whiteSpace: 'nowrap' } })),
+      months: M.map((label, i) => ({ label, style: { textAlign: 'center', font: "700 10.5px/1 'Plus Jakarta Sans',sans-serif", letterSpacing: '0.12em', padding: '7px 0', borderRadius: 999, color: i === now ? '#062319' : '#86B8A0', background: i === now ? 'linear-gradient(135deg,#F1CF7A,#C99A3E)' : 'transparent' } })),
+      calendar: V.map(v => ({ name: v.name, href: v.p + '.dc.html', img: 'assets/' + v.img + '.jpg',
+        cells: v.cal.map((l, i) => ({ peak: l === 2, avail: l === 1, low: l === 0, wrap: { height: 36, display: 'flex', padding: 2, borderRadius: 11, boxShadow: i === now ? 'inset 0 0 0 2px rgba(255,253,248,0.85)' : 'none' } })) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

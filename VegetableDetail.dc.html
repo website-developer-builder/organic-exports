@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<main style="font-family:'Plus Jakarta Sans',sans-serif;color:#0A2E23;background:#FAF7EF">
+  <section style="position:relative;overflow:hidden;background:#062319">
+    <img src="{{ mainImg }}" alt="" style="position:absolute;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);object-fit:cover;filter:blur(40px) saturate(130%);opacity:0.45"></img>
+    <span style="position:absolute;inset:0;background:linear-gradient(100deg,#062319 0%,rgba(6,35,25,0.9) 45%,rgba(6,35,25,0.7) 100%)"></span>
+    <span style="position:absolute;inset:0;background:radial-gradient(600px 320px at 8% 100%,rgba(233,196,106,0.22),transparent 70%)"></span>
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:36px clamp(18px,4vw,32px) clamp(38px,8vw,64px);display:flex;flex-direction:column;gap:36px">
+      <nav style="display:flex;gap:10px;flex-wrap:wrap;font:600 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.16em;color:#A9C2B5">
+        <a href="Home.dc.html" style="color:#A9C2B5;text-decoration:none" style-hover="color:#F1CF7A">HOME</a><span>/</span>
+        <a href="Vegetables.dc.html" style="color:#A9C2B5;text-decoration:none" style-hover="color:#F1CF7A">VEGETABLES</a><span>/</span>
+        <span style="color:#E9C46A">{{ v.crumb }}</span>
+      </nav>
+      <div style="display:flex;flex-wrap:wrap;gap:52px;align-items:center">
+        <div style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:22px">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <span style="background:linear-gradient(135deg,#F1CF7A,#C99A3E);color:#062319;font:800 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.18em;padding:9px 13px;border-radius:999px">{{ v.tag }}</span>
+            <span style="font:600 10.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.16em;color:#A9C2B5;padding:8px 12px;border:1px solid rgba(255,253,248,0.2);border-radius:999px">{{ v.botanical }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h1 style="margin:0;font:600 clamp(52px,6vw,88px)/0.92 'Cormorant Garamond',serif;letter-spacing:-0.02em;color:#FFFDF8">{{ v.name }}</h1>
+            <span style="font:italic 500 24px/1.2 'Cormorant Garamond',serif;color:#F1CF7A">{{ v.local }}</span>
+          </div>
+          <p style="margin:0;font-size:16.5px;line-height:1.7;color:#C9D8CF;text-wrap:pretty;max-width:540px">{{ v.lead }}</p>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:560px">
+            <sc-for list="{{ v.quick }}" as="q" hint-placeholder-count="4">
+              <div style="background:rgba(255,253,248,0.07);border:1px solid rgba(255,253,248,0.14);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:7px;backdrop-filter:blur(10px)">
+                <span style="font:700 9.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.18em;color:#E9C46A">{{ q.k }}</span>
+                <span style="font-size:15px;font-weight:600;line-height:1.35;color:#FFFDF8">{{ q.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px">
+            <a href="{{ quoteHref }}" style="background:linear-gradient(135deg,#F1CF7A,#C99A3E);color:#062319;text-decoration:none;font-size:15px;font-weight:700;padding:17px 28px;border-radius:999px;box-shadow:0 16px 36px -12px rgba(233,196,106,0.8)" style-hover="transform:translateY(-2px)">Request a Quote</a>
+            <a href="#specs" style="border:1px solid rgba(255,253,248,0.3);color:#FFFDF8;text-decoration:none;font-size:15px;font-weight:600;padding:16px 26px;border-radius:999px;background:rgba(255,253,248,0.05)" style-hover="border-color:#F1CF7A;color:#F1CF7A">Full Specifications</a>
+          </div>
+        </div>
+        <div style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:14px">
+          <div data-zoom="" style="position:relative;aspect-ratio:5/4;border-radius:28px;overflow:hidden;box-shadow:0 50px 90px -40px rgba(0,0,0,0.8);border:1px solid rgba(233,196,106,0.35)">
+            <img src="{{ mainImg }}" alt="{{ v.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></img>
+            <span style="position:absolute;left:16px;bottom:16px;background:rgba(6,35,25,0.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#FFFDF8;font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.18em;padding:10px 14px;border-radius:999px;border:1px solid rgba(233,196,106,0.3)">SOURCED · COIMBATORE BELT</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="3">
+              <button onClick="{{ t.select }}" style="position:relative;padding:0;border:0;background:#0A3B2C;width:76px;height:76px;border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 10px 20px -10px rgba(0,0,0,0.6)">
+                <img src="{{ t.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></img>
+                <sc-if value="{{ t.active }}"><span style="position:absolute;inset:0;border-radius:14px;box-shadow:inset 0 0 0 2.5px #F1CF7A"></span></sc-if>
+                <sc-if value="{{ t.inactive }}"><span style="position:absolute;inset:0;background:rgba(6,35,25,0.4)"></span></sc-if>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specs" style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(18px,4vw,32px) 40px;display:flex;flex-wrap:wrap;gap:36px;scroll-margin-top:120px;align-items:flex-start">
+    <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="display:flex;align-items:center;gap:14px;font:700 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.26em;color:#8A6116"><span style="width:40px;height:1px;background:#C99A3E"></span>01 · SPECIFICATION</span>
+        <h2 style="margin:0;font:600 clamp(36px,3.6vw,52px)/1 'Cormorant Garamond',serif;letter-spacing:-0.015em">Trade specification <span style="font-style:italic;color:#1F7A55">sheet</span></h2>
+        <p style="margin:0;font-size:15.5px;line-height:1.75;color:#4E5F57;max-width:440px;text-wrap:pretty">{{ v.intro }}</p>
+      </div>
+      <div data-noreveal="" data-zoom="" style="position:relative;overflow:hidden;border-radius:26px;aspect-ratio:4/3.2;max-height:360px;width:100%;box-shadow:0 44px 80px -40px rgba(4,26,18,0.7);border:1px solid rgba(233,196,106,0.25)">
+        <img src="{{ sideImg }}" alt="{{ v.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></img>
+        <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,35,25,0) 40%,rgba(6,35,25,0.92) 100%)"></span>
+        <div style="position:absolute;left:20px;right:20px;bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
+          <span style="display:flex;flex-direction:column;gap:6px"><span style="font:700 9.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.2em;color:#E9C46A">CUSTOM ON CONTRACT</span><span style="font:600 21px/1.1 'Cormorant Garamond',serif;color:#FFFDF8">Sizing, packing &amp; labelling</span></span>
+          <a href="{{ quoteHref }}" style="background:linear-gradient(135deg,#F1CF7A,#C99A3E);color:#062319;text-decoration:none;font-size:13px;font-weight:700;padding:11px 16px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(233,196,106,0.85)" style-hover="transform:translateY(-2px)">Request full sheet</a>
+        </div>
+      </div>
+      <p style="margin:0;font-size:12.5px;line-height:1.6;color:#6B7A72;max-width:440px">Specifications are indicative and vary by season.</p>
+    </div>
+    <div style="flex:1.7 1 560px;min-width:0;position:relative;background:#FFFFFF;border-radius:28px;box-shadow:0 50px 90px -46px rgba(6,35,25,0.55);border:1px solid rgba(10,46,35,0.06);overflow:hidden">
+      <div style="position:relative;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:20px clamp(18px,3vw,28px);background:linear-gradient(135deg,#0F4A37,#062319)">
+        <span style="position:absolute;right:-50px;top:-50px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(241,207,122,0.28),transparent 70%)"></span>
+        <span style="position:relative;display:flex;align-items:center;gap:12px">
+          <span style="width:40px;height:40px;border-radius:50%;background:linear-gradient(145deg,#F1CF7A,#B8872F);color:#062319;display:flex;align-items:center;justify-content:center;font:700 18px/1 'Cormorant Garamond',serif">S</span>
+          <span style="display:flex;flex-direction:column;gap:4px"><span style="font:700 9.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.22em;color:#E9C46A">SPEC SHEET</span><span style="font:600 22px/1 'Cormorant Garamond',serif;color:#FFFDF8">{{ v.name }}</span></span>
+        </span>
+        <span style="position:relative;display:flex;gap:8px;flex-wrap:wrap">
+          <span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.14em;color:#FFFDF8;background:rgba(255,253,248,0.1);border:1px solid rgba(255,253,248,0.2);padding:8px 11px;border-radius:999px">{{ specCount }} PARAMETERS</span>
+          <span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.14em;color:#062319;background:linear-gradient(135deg,#F1CF7A,#C99A3E);padding:8px 11px;border-radius:999px">REV · 2026</span>
+        </span>
+      </div>
+      <div style="height:10px;background:repeating-linear-gradient(90deg,#FFFFFF 0 10px,#F3EEE2 10px 20px);opacity:0.9"></div>
+      <div style="{{ specGrid }}">
+        <sc-for list="{{ specTiles }}" as="s" hint-placeholder-count="8">
+          <div style="{{ s.style }}">
+            <span style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+              <span style="{{ s.labelStyle }}">{{ s.k }}</span>
+              <span style="{{ s.numStyle }}">{{ s.n }}</span>
+            </span>
+            <span style="{{ s.valStyle }}">{{ s.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:40px clamp(18px,4vw,32px) clamp(53px,8vw,88px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="display:flex;align-items:center;gap:14px;font:700 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.26em;color:#8A6116"><span style="width:40px;height:1px;background:#C99A3E"></span>02 · GRADES</span>
+        <h2 style="margin:0;font:600 clamp(36px,3.6vw,52px)/1 'Cormorant Garamond',serif;letter-spacing:-0.015em">Grades we supply</h2>
+      </div>
+      <a href="Quality.dc.html" style="color:#0A2E23;text-decoration:none;font-size:14px;font-weight:700;padding:13px 20px;border-radius:999px;border:1px solid rgba(10,46,35,0.2);background:#FFFFFF" style-hover="border-color:#0A2E23">How we grade →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:18px">
+      <sc-for list="{{ v.grades }}" as="g" hint-placeholder-count="3">
+        <div style="position:relative;overflow:hidden;background:#FFFFFF;border-radius:24px;padding:28px 28px 30px;display:flex;flex-direction:column;gap:12px;box-shadow:0 30px 60px -40px rgba(6,35,25,0.5);border:1px solid rgba(10,46,35,0.06)">
+          <span style="position:absolute;right:-30px;top:-30px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(241,207,122,0.35),transparent 70%)"></span>
+          <span style="position:relative;width:56px;height:56px;border-radius:50%;background:linear-gradient(145deg,#0F4A37,#062319);color:#F1CF7A;display:flex;align-items:center;justify-content:center;font:600 30px/1 'Cormorant Garamond',serif;box-shadow:0 12px 24px -10px rgba(6,35,25,0.6)">{{ g.g }}</span>
+          <span style="position:relative;font:600 25px/1.1 'Cormorant Garamond',serif">{{ g.t }}</span>
+          <span style="position:relative;font-size:14.5px;line-height:1.65;color:#4E5F57;text-wrap:pretty">{{ g.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="position:relative;overflow:hidden;background:linear-gradient(160deg,#0F4A37 0%,#062319 70%)">
+    <span style="position:absolute;inset:0;background:radial-gradient(800px 400px at 90% 0%,rgba(233,196,106,0.18),transparent 65%),radial-gradient(600px 300px at 0% 100%,rgba(47,163,107,0.22),transparent 70%)"></span>
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(18px,4vw,32px);display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;align-items:flex-end">
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:640px">
+          <span style="display:flex;align-items:center;gap:14px;font:700 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.26em;color:#E9C46A"><span style="width:40px;height:1px;background:#E9C46A"></span>03 · AVAILABILITY</span>
+          <h2 style="margin:0;font:600 clamp(36px,3.6vw,52px)/1 'Cormorant Garamond',serif;letter-spacing:-0.015em;color:#FFFDF8">Harvest <span style="font-style:italic;color:#F1CF7A">calendar</span></h2>
+          <p style="margin:0;font-size:15.5px;line-height:1.7;color:#B9CFC3">{{ v.seasonNote }}</p>
+        </div>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;font:700 10.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.14em;color:#B9CFC3">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#F1CF7A,#C99A3E)"></span>PEAK</span>
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:4px;background:#2FA36B"></span>AVAILABLE</span>
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:4px;border:1px solid rgba(230,242,234,0.35)"></span>LIMITED</span>
+        </div>
+      </div>
+      <div style="background:rgba(255,253,248,0.05);border:1px solid rgba(255,253,248,0.12);border-radius:24px;padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(64px,100%),1fr));gap:8px">
+        <sc-for list="{{ months }}" as="m" hint-placeholder-count="12">
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:stretch">
+            <sc-if value="{{ m.peak }}"><div style="height:64px;border-radius:12px;background:linear-gradient(180deg,#F6D88A,#C99A3E);box-shadow:0 10px 24px -12px rgba(233,196,106,0.8)"></div></sc-if>
+            <sc-if value="{{ m.avail }}"><div style="height:64px;border-radius:12px;background:linear-gradient(180deg,#3FBF7F,#1F7A55)"></div></sc-if>
+            <sc-if value="{{ m.low }}"><div style="height:64px;border-radius:12px;border:1px dashed rgba(230,242,234,0.3)"></div></sc-if>
+            <span style="font:700 10.5px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.14em;color:#E6F2EA;text-align:center">{{ m.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:16px">
+        <div style="background:rgba(255,253,248,0.06);border:1px solid rgba(255,253,248,0.12);border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.2em;color:#E9C46A">SOURCING CLUSTERS</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ v.regions }}" as="r" hint-placeholder-count="4">
+              <span style="background:rgba(255,253,248,0.08);border:1px solid rgba(255,253,248,0.16);padding:7px 12px;border-radius:999px;font-size:13.5px;color:#FFFDF8">{{ r }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background:rgba(255,253,248,0.06);border:1px solid rgba(255,253,248,0.12);border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+          <span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.2em;color:#E9C46A">WEEKLY CAPACITY</span>
+          <span style="font:600 40px/1 'Cormorant Garamond',serif;color:#FFFDF8">{{ v.capacity }}</span>
+          <span style="font-size:13.5px;color:#B9CFC3;line-height:1.55">Contract buyers get priority allocation in peak weeks.</span>
+        </div>
+        <div style="background:rgba(255,253,248,0.06);border:1px solid rgba(255,253,248,0.12);border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+          <span style="font:700 10px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.2em;color:#E9C46A">TYPICAL BUYERS</span>
+          <span style="font-size:14.5px;color:#FFFDF8;line-height:1.6">{{ v.buyers }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(53px,8vw,88px) clamp(18px,4vw,32px) 40px;display:flex;flex-wrap:wrap;gap:48px">
+    <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:16px">
+      <span style="display:flex;align-items:center;gap:14px;font:700 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.26em;color:#8A6116"><span style="width:40px;height:1px;background:#C99A3E"></span>04 · PACKING &amp; DISPATCH</span>
+      <h2 style="margin:0;font:600 clamp(36px,3.6vw,52px)/1 'Cormorant Garamond',serif;letter-spacing:-0.015em">From field <span style="font-style:italic;color:#1F7A55">to truck</span></h2>
+      <p style="margin:0;font-size:15.5px;line-height:1.75;color:#4E5F57;max-width:420px">Every consignment carries a lot tag with harvest date, grade and packhouse batch, so your receiving team can trace it.</p>
+      <a href="Logistics.dc.html" style="align-self:flex-start;color:#0A2E23;text-decoration:none;font-size:14px;font-weight:700;padding:13px 20px;border-radius:999px;border:1px solid rgba(10,46,35,0.2);background:#FFFFFF" style-hover="border-color:#0A2E23">Transit times by state →</a>
+    </div>
+    <div style="flex:2 1 560px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:16px">
+      <sc-for list="{{ v.packing }}" as="p" hint-placeholder-count="4">
+        <div style="background:#FFFFFF;border-radius:22px;padding:24px 26px;display:flex;flex-direction:column;gap:10px;box-shadow:0 30px 60px -44px rgba(6,35,25,0.5);border:1px solid rgba(10,46,35,0.06)">
+          <span style="font:600 36px/1 'Cormorant Garamond',serif;background:linear-gradient(135deg,#E2B656,#9A6B12);-webkit-background-clip:text;background-clip:text;color:transparent">{{ p.n }}</span>
+          <span style="font-size:17px;font-weight:700">{{ p.t }}</span>
+          <span style="font-size:14.5px;line-height:1.65;color:#4E5F57;text-wrap:pretty">{{ p.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(29px,8vw,48px) clamp(18px,4vw,32px);display:flex;flex-wrap:wrap;gap:48px">
+    <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:16px">
+      <span style="display:flex;align-items:center;gap:14px;font:700 11px/1 'Plus Jakarta Sans',sans-serif;letter-spacing:0.26em;color:#8A6116"><span style="width:40px;height:1px;background:#C99A3E"></span>05 · BUYER FAQ</span>
+      <h2 style="margin:0;font:600 clamp(36px,3.6vw,52px)/1 'Cormorant Garamond',serif;letter-spacing:-0.015em">Questions about <span style="font-style:italic;color:#1F7A55">{{ v.short }}</span></h2>
+    </div>
+    <div style="flex:2 1 560px;min-width:0;background:#FFFFFF;border-radius:26px;padding:6px clamp(18px,3vw,30px);box-shadow:0 40px 80px -44px rgba(6,35,25,0.45);border:1px solid rgba(10,46,35,0.06)">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+        <div style="border-bottom:1px solid rgba(10,46,35,0.08)">
+          <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;background:transparent;border:0;cursor:pointer;text-align:left;font:600 16.5px/1.45 'Plus Jakarta Sans',sans-serif;color:#0A2E23">
+            <span>{{ f.q }}</span>
+            <span style="width:34px;height:34px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:#F3EEE2;color:#8A6116;font-size:20px;font-weight:500">{{ f.sign }}</span>
+          </button>
+          <sc-if value="{{ f.open }}">
+            <p style="margin:0;padding:0 clamp(0px,4vw,56px) 22px 0;font-size:15px;line-height:1.75;color:#4E5F57;text-wrap:pretty">{{ f.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(29px,8vw,48px) clamp(18px,4vw,32px) clamp(58px,8vw,96px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px">
+      <h2 style="margin:0;font:600 clamp(32px,3.2vw,46px)/1 'Cormorant Garamond',serif;letter-spacing:-0.015em">Often shipped <span style="font-style:italic;color:#1F7A55">together</span></h2>
+      <a href="Vegetables.dc.html" style="color:#0A2E23;text-decoration:none;font-size:14px;font-weight:700;padding:13px 20px;border-radius:999px;border:1px solid rgba(10,46,35,0.2);background:#FFFFFF" style-hover="border-color:#0A2E23">All vegetables →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:18px">
+      <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+        <div style="height:400px;min-width:0">
+          <dc-import name="VegCard" href="{{ r.href }}" img="{{ r.img }}" title="{{ r.name }}" local="{{ r.local }}" tag="{{ r.tag }}" blurb="{{ r.card }}" season="{{ r.season }}" style="display:block;height:100%" hint-size="100%,400px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;slug&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;small-onion&quot;,&quot;tomato&quot;,&quot;green-chilli&quot;,&quot;jalapeno&quot;,&quot;drumstick&quot;,&quot;ridge-gourd&quot;,&quot;bottle-gourd&quot;,&quot;bitter-gourd&quot;,&quot;cauliflower&quot;],&quot;default&quot;:&quot;tomato&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+const STD_PACK = (pack, cool) => [
+  { n: '01', t: 'Harvest & field selection', d: 'Picked at trade maturity by partner farmers in the early morning, then moved to our collection points in ventilated crates the same day.' },
+  { n: '02', t: 'Sorting & grading', d: 'Hand-sorted on grading tables against size, colour and defect tolerances. Off-grade produce is separated, never mixed into a higher lot.' },
+  { n: '03', t: 'Packing', d: pack },
+  { n: '04', t: 'Conditioning & loading', d: cool }
+];
+const D = {
+  'small-onion': { short:'Small Onion', name:'Small Onion', crumb:'SMALL ONION', local:'Chinna Vengayam · Shallot', botanical:'ALLIUM CEPA VAR. AGGREGATUM', tag:'FLAGSHIP LINE',
+    imgs:['small-onion-5','small-onion-1','small-onion-2','small-onion-3','small-onion-4','small-onion-6'],
+    lead:'Coimbatore’s signature crop. Pungent, firm, deep-pink shallots with tight skins — cured and graded for long-haul dispatch to wholesale markets across India.',
+    card:'Cured, pungent pink shallots from Coimbatore and Tiruppur growers.', season:'PEAK MAR–MAY · AUG–OCT',
+    intro:'Our shallots are field-cured for 7–10 days before grading, which dries the neck, sets the skin and gives the onion the shelf life it needs for multi-day road transit.',
+    quick:[{k:'SIZE GRADES',v:'15–20 / 20–30 / 30–40 mm'},{k:'PACKING',v:'25 kg & 50 kg mesh / jute'},{k:'MIN. ORDER',v:'5 MT per consignment'},{k:'SHELF LIFE',v:'30–45 days, ventilated'}],
+    specs:[{k:'VARIETY',v:'CO-4, CO(On)-5 and local Coimbatore pink'},{k:'COLOUR',v:'Bright pink to deep red-pink, uniform within lot'},{k:'SIZE (DIAMETER)',v:'15–20 mm (small) · 20–30 mm (medium) · 30–40 mm (bold)'},{k:'CURING',v:'Field-cured 7–10 days; necks dry and tight'},{k:'MOISTURE / DEFECTS',v:'Free from sprouting, rot, double bulbs and loose skins beyond 2%'},{k:'PACKING OPTIONS',v:'25 kg / 50 kg leno mesh bags, jute bags, or 10 kg retail-ready mesh'},{k:'STORAGE',v:'Dry, ventilated, 25–30 °C; avoid humid cold rooms'},{k:'SUPPLY',v:'Year-round from fresh harvest and curing sheds'}],
+    grades:[{g:'A',t:'Bold export grade',d:'30–40 mm, uniform colour, tight skin, zero sprouting. Preferred by modern retail and HoReCa.'},{g:'B',t:'Medium trade grade',d:'20–30 mm, sound bulbs with minor skin blemish. The workhorse grade for wholesale mandis.'},{g:'C',t:'Small / processing',d:'15–20 mm. Ideal for pickles, sambar and paste processors who need volume at value pricing.'}],
+    seasonNote:'Two main harvest windows in Coimbatore, with cured stock bridging the gaps. Plan contract volumes before March for best allocation.',
+    cal:[1,1,2,2,2,1,1,2,2,2,1,1], regions:['Thondamuthur','Karamadai','Palladam','Udumalpet','Dharapuram'], capacity:'60–80 MT', buyers:'Wholesale onion commission agents, retail chains, pickle and masala processors, institutional kitchens.',
+    packing: STD_PACK('Filled into 25 or 50 kg leno mesh bags, stitched and tagged with grade and lot number. Jute bags available on request.', 'Loaded in ventilated trucks with stacking gaps for airflow. No refrigeration needed for cured stock.'),
+    faqs:[{q:'Why are Coimbatore small onions priced higher than Bellary onions?',a:'Shallots yield less per acre, are harvested by hand and need curing. In return you get stronger pungency and better shelf life — which is why South Indian kitchens specify them.'},{q:'Can you supply peeled small onions?',a:'Yes, on contract. Peeled shallots are vacuum or MAP packed and shipped chilled; shelf life is 7–10 days. Minimum order applies.'},{q:'How do you prevent sprouting during transit?',a:'We only dispatch fully cured stock, keep bags off the truck floor, and avoid cold-room storage that triggers sprouting once onions return to ambient temperature.'},{q:'Do you provide a sample before a bulk order?',a:'Yes. We courier a 5 kg sample of your chosen grade with photos of the actual lot before you confirm.'}],
+    related:['tomato','green-chilli','drumstick'] },
+  'tomato': { short:'Tomato', name:'Tomato', crumb:'TOMATO', local:'Thakkali', botanical:'SOLANUM LYCOPERSICUM', tag:'HIGH VOLUME',
+    imgs:['tomato-3','tomato-1','tomato-2','tomato-4'],
+    lead:'Firm, thick-walled hybrid and country tomatoes picked at the right colour stage for your transit time — so they arrive red, not bruised.',
+    card:'Firm hybrid and country tomatoes, picked to suit your transit time.', season:'PEAK NOV–MAR',
+    intro:'We match maturity to distance: breaker-stage for 3–5 day routes to North and East India, turning to light-red for Kerala, Karnataka and Andhra buyers.',
+    quick:[{k:'SIZE GRADES',v:'50–60 / 60–70 / 70+ mm'},{k:'PACKING',v:'15 kg & 25 kg crates / cartons'},{k:'MIN. ORDER',v:'1 truck (8–10 MT)'},{k:'SHELF LIFE',v:'7–12 days by maturity'}],
+    specs:[{k:'VARIETY',v:'Hybrids (Shivam, Arka Rakshak, Saaho types) and PKM-1 country tomato'},{k:'MATURITY STAGE',v:'Breaker, turning or light-red — specified at order'},{k:'SIZE (DIAMETER)',v:'50–60 mm · 60–70 mm · 70 mm and above'},{k:'FIRMNESS',v:'Thick pericarp, suitable for 3–5 day road transit'},{k:'DEFECTS',v:'Free from cracks, sunscald and soft spots; tolerance under 3%'},{k:'PACKING OPTIONS',v:'15 kg / 25 kg returnable plastic crates or 3-ply corrugated cartons'},{k:'STORAGE',v:'12–15 °C, 85–90% RH for breaker stage'},{k:'SUPPLY',v:'Year-round, highest volumes November to March'}],
+    grades:[{g:'A',t:'Premium retail',d:'65 mm+, uniform colour stage, glossy skin. For supermarkets and quick-commerce dark stores.'},{g:'B',t:'Wholesale standard',d:'55–65 mm, firm, minor surface marks. Our highest-volume grade for mandis.'},{g:'C',t:'Processing',d:'Mixed size, fully ripe. For puree, ketchup and food-service kitchens.'}],
+    seasonNote:'Coimbatore and the Udumalpet–Palladam belt supply tomatoes year-round; winter months bring the firmest fruit and the most stable prices.',
+    cal:[2,2,2,1,1,1,1,1,1,1,2,2], regions:['Udumalpet','Kinathukadavu','Palladam','Thondamuthur','Pollachi'], capacity:'120–150 MT', buyers:'Wholesale traders, retail and quick-commerce chains, sauce and puree processors, catering contractors.',
+    packing: STD_PACK('Packed single-variety into crates or ventilated cartons, top layer graded for display. Paper liners on request for premium grade.', 'Pre-cooled where required and loaded in reefer or ventilated trucks depending on distance and season.'),
+    faqs:[{q:'How do you stop tomatoes over-ripening on long routes?',a:'We harvest at breaker stage for long routes and pre-cool before loading. Your receiving date decides the maturity we pick at.'},{q:'Can you supply in returnable crates?',a:'Yes. Regular buyers can run a crate-return cycle with us, which lowers packaging cost per kg.'},{q:'Do you offer fixed-price contracts?',a:'For committed weekly volumes we offer fortnightly or monthly price bands. Spot pricing is available for one-off loads.'},{q:'What is the minimum order?',a:'One full truck — usually 8–10 MT — for outstation dispatch. Part loads can be combined with other vegetables on the same truck.'}],
+    related:['small-onion','green-chilli','cauliflower'] },
+  'green-chilli': { short:'Green Chilli', name:'Green Chilli', crumb:'GREEN CHILLI', local:'Pachai Milagai', botanical:'CAPSICUM ANNUUM', tag:'HIGH DEMAND',
+    imgs:['green-chilli-2','green-chilli-1','green-chilli-3'],
+    lead:'Glossy, dark-green, medium-hot chillies with stems intact. Sorted for length and colour, and packed to breathe on the road.',
+    card:'Glossy, medium-hot dark green chillies, stems intact.', season:'PEAK MAR–MAY · OCT–NOV',
+    intro:'Chillies lose shine and turn red quickly in heat. We harvest early, keep produce shaded at collection, and pack in ventilated cartons or mesh to control respiration.',
+    quick:[{k:'LENGTH',v:'6–8 / 8–10 / 10–12 cm'},{k:'PACKING',v:'5–10 kg cartons, 20 kg mesh'},{k:'MIN. ORDER',v:'2 MT'},{k:'SHELF LIFE',v:'7–10 days at 8–10 °C'}],
+    specs:[{k:'VARIETY',v:'G4 type, Jwala type and local Coimbatore green'},{k:'PUNGENCY',v:'Medium to hot; specify at order'},{k:'LENGTH',v:'6–8 cm · 8–10 cm · 10–12 cm'},{k:'COLOUR',v:'Uniform dark or light green, glossy; red fruits below 2%'},{k:'STEM',v:'Stem intact, fresh and green'},{k:'PACKING OPTIONS',v:'5 kg / 10 kg ventilated cartons, 20 kg leno mesh bags'},{k:'STORAGE',v:'8–10 °C, 90–95% RH'},{k:'SUPPLY',v:'Year-round'}],
+    grades:[{g:'A',t:'Retail select',d:'Straight, uniform length, high gloss, stem intact. For modern retail packs.'},{g:'B',t:'Wholesale',d:'Mixed lengths within band, firm and green. Standard mandi grade.'},{g:'C',t:'Processing',d:'Mixed size and minor curvature. For pickles, sauces and pastes.'}],
+    seasonNote:'Available every month. Summer brings the hottest chillies; post-monsoon harvests give the best colour.',
+    cal:[1,1,2,2,2,1,1,1,1,2,2,1], regions:['Annur','Karamadai','Sulur','Pollachi'], capacity:'25–35 MT', buyers:'Wholesale markets, restaurant groups, pickle and sauce manufacturers, retail chains.',
+    packing: STD_PACK('Packed loose in ventilated cartons or mesh bags — never sealed plastic — to prevent sweating and rot.', 'Shipped in reefer trucks at 8–10 °C on routes longer than 24 hours.'),
+    faqs:[{q:'Can you supply a specific pungency level?',a:'Yes. Tell us how you use the chilli and we’ll recommend the variety and send a sample before confirming volume.'},{q:'How do you prevent chillies turning red in transit?',a:'Early-morning harvest, shaded handling and cold-chain dispatch on long routes slow ripening significantly.'},{q:'Can green chilli share a truck with other vegetables?',a:'Yes — we commonly combine chilli with small onion, drumstick and gourds on the same consignment.'}],
+    related:['jalapeno','small-onion','tomato'] },
+  'jalapeno': { short:'Jalapeño', name:'Jalapeño Chilli', crumb:'JALAPEÑO', local:'Thick-walled green chilli', botanical:'CAPSICUM ANNUUM', tag:'SPECIALTY',
+    imgs:['jalapeno-2','jalapeno-1','jalapeno-3'],
+    lead:'Plump, thick-fleshed jalapeños grown for food-service and processing buyers who need consistent size, crunch and mild heat.',
+    card:'Plump, thick-fleshed chillies for food-service and processors.', season:'PEAK MAR–APR · SEP–OCT',
+    intro:'Grown under contract with a smaller set of growers, our jalapeños are selected for wall thickness and uniform shape — what slicers and stuffers need.',
+    quick:[{k:'LENGTH',v:'6–9 cm'},{k:'PACKING',v:'5 kg & 10 kg cartons'},{k:'MIN. ORDER',v:'1 MT'},{k:'SHELF LIFE',v:'10–14 days at 7–10 °C'}],
+    specs:[{k:'TYPE',v:'Jalapeño, dark green, smooth to lightly corked skin'},{k:'LENGTH',v:'6–9 cm; diameter 2.5–3.5 cm'},{k:'WALL',v:'Thick-fleshed, firm, crunchy'},{k:'HEAT',v:'Mild to medium'},{k:'DEFECTS',v:'Free from soft spots, sunscald and insect damage'},{k:'PACKING OPTIONS',v:'5 kg / 10 kg ventilated cartons with liners'},{k:'STORAGE',v:'7–10 °C, 90–95% RH'},{k:'SUPPLY',v:'Year-round under contract; spot lots seasonal'}],
+    grades:[{g:'A',t:'Fresh retail & HoReCa',d:'Uniform 7–9 cm, glossy, smooth skin. For restaurants, QSR chains and premium retail.'},{g:'B',t:'Processing',d:'Mixed size, firm. For pickling, slicing and brining operations.'}],
+    seasonNote:'Contracted plantings keep supply steady; spot availability peaks after the summer and post-monsoon flushes.',
+    cal:[1,1,2,2,1,1,1,1,2,2,1,1], regions:['Thondamuthur','Karamadai','Mettupalayam'], capacity:'8–12 MT', buyers:'QSR and pizza chains, pickle and brine processors, premium retailers, hotel kitchens.',
+    packing: STD_PACK('Packed in lined ventilated cartons, sized and counted for food-service buyers who need predictable yield.', 'Pre-cooled to 8 °C and dispatched by reefer truck.'),
+    faqs:[{q:'Do you grow jalapeño on contract?',a:'Yes. For buyers committing to weekly volumes we plan plantings with growers, which keeps supply and price stable.'},{q:'Can you supply red jalapeño?',a:'Small volumes of red-ripe jalapeño are available on advance order.'},{q:'What is the minimum order?',a:'1 MT, which can be combined with other vegetables on a shared truck.'}],
+    related:['green-chilli','tomato','cauliflower'] },
+  'drumstick': { short:'Drumstick', name:'Drumstick', crumb:'DRUMSTICK', local:'Murungakkai · Moringa', botanical:'MORINGA OLEIFERA', tag:'TAMIL NADU SPECIALTY',
+    imgs:['drumstick-2','drumstick-1'],
+    lead:'Long, tender PKM drumsticks with full pods and soft seeds — bundled straight, so they travel without snapping.',
+    card:'Long, tender PKM-1 pods, bundled straight for transit.', season:'PEAK FEB–JUN',
+    intro:'Tamil Nadu is India’s drumstick heartland. We source PKM-1 and PKM-2 pods harvested before fibre sets, so the flesh stays tender.',
+    quick:[{k:'LENGTH',v:'45–60 cm'},{k:'PACKING',v:'5 kg bundles in 20 kg boxes'},{k:'MIN. ORDER',v:'2 MT'},{k:'SHELF LIFE',v:'7–10 days at 8–10 °C'}],
+    specs:[{k:'VARIETY',v:'PKM-1, PKM-2'},{k:'LENGTH',v:'45–60 cm; uniform within bundle'},{k:'MATURITY',v:'Tender, seeds undeveloped, snaps cleanly'},{k:'COLOUR',v:'Fresh green, free from yellowing'},{k:'DEFECTS',v:'No cracks, bends over 15° or dried tips'},{k:'PACKING OPTIONS',v:'Tied 5 kg bundles in 20 kg corrugated boxes or wrapped bundles'},{k:'STORAGE',v:'8–10 °C, 85–90% RH'},{k:'SUPPLY',v:'Peak February–June; limited during August–September'}],
+    grades:[{g:'A',t:'Straight long',d:'55–60 cm, uniform thickness and colour. For retail and export-quality buyers.'},{g:'B',t:'Trade standard',d:'45–55 cm with minor curvature. Standard wholesale grade.'}],
+    seasonNote:'Drumstick supply peaks in summer and dips during the monsoon. Contract buyers receive priority allocation in lean months.',
+    cal:[1,2,2,2,2,2,1,0,0,1,1,1], regions:['Dharapuram','Oddanchatram corridor','Palladam','Udumalpet'], capacity:'20–30 MT', buyers:'South Indian restaurant chains, wholesale markets in Kerala, Maharashtra and Delhi, retail chains.',
+    packing: STD_PACK('Tied into straight 5 kg bundles and packed in long-format boxes so pods don’t bend or snap.', 'Loaded flat, never under heavier produce. Reefer on long routes.'),
+    faqs:[{q:'Do drumsticks travel well to North India?',a:'Yes, when packed flat in boxes and shipped by reefer. Delhi and Mumbai buyers regularly receive our drumsticks in 3–5 days.'},{q:'Can you cut drumsticks to length?',a:'Cut and packed drumstick pieces are available for food-service buyers on order.'},{q:'Do you supply moringa leaves?',a:'Fresh moringa leaves are available in limited volumes on advance order.'}],
+    related:['small-onion','ridge-gourd','bitter-gourd'] },
+  'ridge-gourd': { short:'Ridge Gourd', name:'Ridge Gourd', crumb:'RIDGE GOURD', local:'Peerkangai', botanical:'LUFFA ACUTANGULA', tag:'GOURD',
+    imgs:['ridge-gourd-3','ridge-gourd-1','ridge-gourd-2'],
+    lead:'Tender, sharp-ridged gourds from trellised plots — straight, unblemished and harvested young before the flesh turns fibrous.',
+    card:'Tender, straight trellis-grown gourds, picked young.', season:'PEAK MAR–MAY · SEP–OCT',
+    intro:'Trellis cultivation keeps ridge gourds off the ground, so they grow straight and clean. We pick every two to three days to keep them tender.',
+    quick:[{k:'LENGTH',v:'30–45 cm'},{k:'PACKING',v:'10 kg & 20 kg cartons / crates'},{k:'MIN. ORDER',v:'2 MT'},{k:'SHELF LIFE',v:'5–7 days at 10–12 °C'}],
+    specs:[{k:'VARIETY',v:'CO-1, PKM-1 and hybrids'},{k:'LENGTH',v:'30–45 cm; diameter 4–6 cm'},{k:'TEXTURE',v:'Tender, seeds soft, flesh not fibrous'},{k:'COLOUR',v:'Uniform dark green, sharp ridges'},{k:'DEFECTS',v:'Free from scars, yellowing and curvature over 20°'},{k:'PACKING OPTIONS',v:'10 kg / 20 kg ventilated cartons or plastic crates'},{k:'STORAGE',v:'10–12 °C, 90–95% RH'},{k:'SUPPLY',v:'Year-round'}],
+    grades:[{g:'A',t:'Retail',d:'Straight, 35–45 cm, uniform. For supermarket shelves.'},{g:'B',t:'Wholesale',d:'30–40 cm with minor surface marks. Standard trade grade.'}],
+    seasonNote:'Available through the year, with the best quality in the dry months either side of the monsoon.',
+    cal:[1,1,2,2,2,1,1,1,2,2,1,1], regions:['Mettupalayam','Karamadai','Thondamuthur'], capacity:'15–20 MT', buyers:'Wholesale markets, retail chains, institutional kitchens.',
+    packing: STD_PACK('Laid lengthwise in cartons or crates, no more than four layers deep to avoid pressure bruising.', 'Reefer dispatch at 10–12 °C on routes over 24 hours.'),
+    faqs:[{q:'How do you keep ridge gourd from getting fibrous?',a:'We harvest every two to three days so gourds are picked young, and we reject overgrown fruit at grading.'},{q:'Can ridge gourd ship with other vegetables?',a:'Yes, it pairs well with bottle gourd, bitter gourd and drumstick on a mixed truck.'}],
+    related:['bottle-gourd','bitter-gourd','drumstick'] },
+  'bottle-gourd': { short:'Bottle Gourd', name:'Bottle Gourd', crumb:'BOTTLE GOURD', local:'Suraikkai · Lauki', botanical:'LAGENARIA SICERARIA', tag:'GOURD',
+    imgs:['bottle-gourd-1'],
+    lead:'Pale-green, glossy, cylindrical gourds with tender white flesh — consistent weight and shape for retail and food-service.',
+    card:'Glossy, cylindrical gourds with consistent weight.', season:'PEAK FEB–MAY',
+    intro:'Bottle gourd is robust in transit but bruises show. We grade for weight band and surface finish and pack with separators.',
+    quick:[{k:'WEIGHT',v:'0.8–1.2 / 1.2–1.8 kg'},{k:'PACKING',v:'20 kg crates / cartons'},{k:'MIN. ORDER',v:'3 MT'},{k:'SHELF LIFE',v:'10–14 days at 10–12 °C'}],
+    specs:[{k:'VARIETY',v:'CO-1, PKM-1 and long hybrids'},{k:'SHAPE',v:'Long cylindrical, 35–50 cm'},{k:'WEIGHT',v:'0.8–1.2 kg · 1.2–1.8 kg'},{k:'COLOUR',v:'Light green, glossy, fine fuzz intact'},{k:'DEFECTS',v:'Free from bruises, scars and soft ends'},{k:'PACKING OPTIONS',v:'20 kg plastic crates or cartons with paper separators'},{k:'STORAGE',v:'10–12 °C, 85–90% RH'},{k:'SUPPLY',v:'Year-round'}],
+    grades:[{g:'A',t:'Retail',d:'0.8–1.2 kg, straight, unmarked skin.'},{g:'B',t:'Wholesale',d:'1.2–1.8 kg or minor surface marks.'}],
+    seasonNote:'Steady supply year-round with peak volumes from late winter into summer.',
+    cal:[1,2,2,2,2,1,1,1,1,1,1,1], regions:['Mettupalayam','Annur','Sulur'], capacity:'20–25 MT', buyers:'Wholesale markets in North and West India, retail chains, juice and health-food brands.',
+    packing: STD_PACK('Packed in crates with paper separators so skins don’t rub during transit.', 'Ventilated truck for short routes; reefer for 2+ day routes.'),
+    faqs:[{q:'Can you supply by count instead of weight?',a:'Yes. Retail buyers can order by piece count per crate within a weight band.'},{q:'Do you supply round bottle gourd?',a:'Round varieties are available seasonally on advance order.'}],
+    related:['ridge-gourd','bitter-gourd','cauliflower'] },
+  'bitter-gourd': { short:'Bitter Gourd', name:'Bitter Gourd', crumb:'BITTER GOURD', local:'Pavakkai · Karela', botanical:'MOMORDICA CHARANTIA', tag:'GOURD',
+    imgs:['bitter-gourd-3','bitter-gourd-1','bitter-gourd-2'],
+    lead:'Bright-green, spiny-ridged bitter gourds harvested before they yellow — firm, uniform and packed to protect their delicate tips.',
+    card:'Bright green, firm, spiny bitter gourds picked before yellowing.', season:'PEAK MAR–MAY · SEP–OCT',
+    intro:'Bitter gourd ripens fast once picked. We harvest at full size but before seed colour changes, and move it into cold chain the same day.',
+    quick:[{k:'LENGTH',v:'15–20 / 20–30 cm'},{k:'PACKING',v:'10 kg & 20 kg cartons'},{k:'MIN. ORDER',v:'2 MT'},{k:'SHELF LIFE',v:'5–7 days at 10–12 °C'}],
+    specs:[{k:'VARIETY',v:'CO-1, MDU-1 and green long hybrids'},{k:'LENGTH',v:'15–20 cm · 20–30 cm'},{k:'COLOUR',v:'Bright to dark green; no yellow or orange tint'},{k:'SURFACE',v:'Pronounced ridges and tubercles, intact tips'},{k:'DEFECTS',v:'Free from soft spots, splitting and fruit-fly damage'},{k:'PACKING OPTIONS',v:'10 kg / 20 kg ventilated cartons or crates'},{k:'STORAGE',v:'10–12 °C, 85–90% RH; keep away from ethylene producers'},{k:'SUPPLY',v:'Year-round'}],
+    grades:[{g:'A',t:'Retail long',d:'20–30 cm, uniform, dark green, tips intact.'},{g:'B',t:'Wholesale',d:'15–25 cm, firm, minor surface marks.'},{g:'C',t:'Processing',d:'Mixed size for juice and dried-chip processors.'}],
+    seasonNote:'Two strong flushes a year with steady base supply between them.',
+    cal:[1,1,2,2,2,1,1,1,2,2,1,1], regions:['Thondamuthur','Karamadai','Pollachi'], capacity:'15–20 MT', buyers:'Wholesale markets, retail chains, juice and nutraceutical processors.',
+    packing: STD_PACK('Packed in ventilated cartons, separated from tomatoes and other ethylene-producing produce.', 'Pre-cooled and shipped by reefer at 10–12 °C.'),
+    faqs:[{q:'Why is bitter gourd kept separate from tomatoes?',a:'Tomatoes release ethylene, which yellows bitter gourd quickly. On mixed trucks we pack them in separate zones.'},{q:'Can you supply small bitter gourd?',a:'Yes, the short spiny type is available seasonally on order.'}],
+    related:['ridge-gourd','bottle-gourd','drumstick'] },
+  'cauliflower': { short:'Cauliflower', name:'Cauliflower', crumb:'CAULIFLOWER', local:'Hill-grown · Nilgiris corridor', botanical:'BRASSICA OLERACEA VAR. BOTRYTIS', tag:'COOL-SEASON',
+    imgs:['cauliflower-1'],
+    lead:'Compact, snow-white curds from the cool Nilgiris foothill farms above Mettupalayam — leaf-wrapped to stay clean and white in transit.',
+    card:'Compact, white curds from the cool Nilgiris foothills.', season:'PEAK NOV–FEB',
+    intro:'The Mettupalayam–Nilgiris corridor gives cauliflower the cool nights it needs for tight, white curds. We aggregate at Mettupalayam and dispatch from Coimbatore.',
+    quick:[{k:'CURD WEIGHT',v:'600 g – 1.2 kg'},{k:'PACKING',v:'Crates / cartons, leaf-wrapped'},{k:'MIN. ORDER',v:'3 MT'},{k:'SHELF LIFE',v:'10–14 days at 0–2 °C'}],
+    specs:[{k:'VARIETY',v:'Snowball-type and tropical hybrids'},{k:'CURD',v:'Compact, white to creamy-white, no riciness'},{k:'WEIGHT',v:'600–900 g · 900 g–1.2 kg'},{k:'TRIM',v:'Wrapper leaves trimmed to protect curd'},{k:'DEFECTS',v:'Free from browning, bruising and loose florets'},{k:'PACKING OPTIONS',v:'Crates or cartons by count (8 / 10 / 12 pieces)'},{k:'STORAGE',v:'0–2 °C, 95% RH'},{k:'SUPPLY',v:'Peak November–February; reduced in summer'}],
+    grades:[{g:'A',t:'Retail white',d:'Compact pure-white curd, 700 g – 1 kg.'},{g:'B',t:'Trade',d:'Creamy-white curd or minor surface marks, mixed weights.'}],
+    seasonNote:'Best quality in the cool months. Summer supply is limited and priced accordingly.',
+    cal:[2,2,1,0,0,0,1,1,1,1,2,2], regions:['Mettupalayam','Kotagiri','Ooty belt'], capacity:'20–30 MT', buyers:'Retail chains, wholesale markets in Kerala and Karnataka, food-service kitchens.',
+    packing: STD_PACK('Trimmed with wrapper leaves on, packed by count curd-down in crates or cartons.', 'Hydro- or forced-air pre-cooled and shipped by reefer at 0–4 °C.'),
+    faqs:[{q:'Can you supply florets?',a:'Cut florets in MAP packs are available on contract for food-service buyers.'},{q:'Why does summer cauliflower cost more?',a:'Hot weather loosens curds and reduces yield, so fewer heads reach Grade A.'}],
+    related:['tomato','bottle-gourd','small-onion'] }
+};
+const PAGE = { 'small-onion':'SmallOnion','tomato':'Tomato','green-chilli':'GreenChilli','jalapeno':'Jalapeno','drumstick':'Drumstick','ridge-gourd':'RidgeGourd','bottle-gourd':'BottleGourd','bitter-gourd':'BitterGourd','cauliflower':'Cauliflower' };
+class Component extends DCLogic {
+  state = { img: 0, faq: 0, w: typeof window !== 'undefined' ? window.innerWidth : 1400 };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); }
+  renderVals() {
+    const slug = this.props.slug || 'tomato';
+    const v = D[slug] || D.tomato;
+    const imgs = v.imgs.map(i => 'assets/' + i + '.jpg');
+    const idx = Math.min(this.state.img, imgs.length - 1);
+    return {
+      v, mainImg: imgs[idx], sideImg: imgs[(idx + 1) % imgs.length], specCount: v.specs.length,
+      specGrid: { display: 'grid', gridTemplateColumns: (this.state.w || 1400) >= 600 ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)', gap: 10, padding: 'clamp(14px,2.4vw,22px)' },
+      specTiles: v.specs.map((sp, i) => { const hl = i === 0; return { k: sp.k, v: sp.v, n: String(i + 1).padStart(2, '0'),
+        style: { display: 'flex', flexDirection: 'column', gap: 10, padding: '16px 18px 18px', borderRadius: 18, background: hl ? 'linear-gradient(135deg,#FBF1DA,#F6E7C2)' : '#F9F7F1', border: hl ? '1px solid rgba(201,154,62,0.4)' : '1px solid rgba(10,46,35,0.06)', transition: 'transform .25s, box-shadow .25s' },
+        labelStyle: { font: "700 10px/1.3 'Plus Jakarta Sans',sans-serif", letterSpacing: '0.18em', color: '#8A6116' },
+        numStyle: { font: "600 16px/1 'Cormorant Garamond',serif", color: hl ? '#8A6116' : '#B9B09A' },
+        valStyle: { fontSize: hl ? 17 : 15, fontWeight: hl ? 700 : 600, lineHeight: 1.5, color: '#0A2E23' } }; }),
+      thumbs: imgs.length > 1 ? imgs.map((src, i) => ({ src, active: i === idx, inactive: i !== idx, select: () => this.setState({ img: i }) })) : [],
+      months: v.cal.map((l, i) => ({ label: MONTHS[i], peak: l === 2, avail: l === 1, low: l === 0 })),
+      faqs: v.faqs.map((f, i) => ({ ...f, open: this.state.faq === i, sign: this.state.faq === i ? '−' : '+', toggle: () => this.setState(s => ({ faq: s.faq === i ? -1 : i })) })),
+      quoteHref: 'Contact.dc.html?product=' + slug + '#quote',
+      related: v.related.map(r => ({ ...D[r], href: PAGE[r] + '.dc.html', img: 'assets/' + D[r].imgs[0] + '.jpg', local: D[r].local.split(' · ')[0] }))
+    };
+  }
+}
+</script>
+</body>
+</html>
